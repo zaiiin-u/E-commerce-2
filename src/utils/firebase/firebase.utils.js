@@ -6,9 +6,10 @@ import {
   signInWithPopup,
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
 } from "firebase/auth";
 import { getFirestore, doc, getDoc, setDoc } from "firebase/firestore";
-//import SignUpForm from "../../components/sign-up-form/sign-up-form.component";
+import SignUpForm from "../../components/sign-up-form/sign-up-form.component";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCAGEtx6WTgPVw6kgLTk2nGAah4M4uXQy0",
@@ -61,4 +62,8 @@ export const createUserDocumemtFromAuth = async (
 export const createAuthUserWithEmailandPassword = async (email, password) => {
   if (!email || !password) return;
   return await createUserWithEmailAndPassword(auth, email, password);
+};
+export const signInAuthUserWithEmailandPassword = async (email, password) => {
+  if (!email || !password) return;
+  return await signInWithEmailAndPassword(auth, email, password);
 };
