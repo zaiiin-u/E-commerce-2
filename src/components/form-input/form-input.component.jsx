@@ -1,18 +1,15 @@
-import "./form-input.syles.scss";
-const FormInput = ({ label, ...inputOptions }) => {
+import { FormInputLabel, Group, Input } from "./form-input.styles";
+
+const FormInput = ({ label, ...otherProps }) => {
   return (
-    <div className="group">
-      <input className="form-input" {...inputOptions} />
+    <Group>
+      <Input {...otherProps} />
       {label && (
-        <label
-          className={`${
-            inputOptions.value.length ? "shrink" : ""
-          } form-input-label`}
-        >
+        <FormInputLabel shrink={otherProps.value.length}>
           {label}
-        </label>
+        </FormInputLabel>
       )}
-    </div>
+    </Group>
   );
 };
 export default FormInput;
